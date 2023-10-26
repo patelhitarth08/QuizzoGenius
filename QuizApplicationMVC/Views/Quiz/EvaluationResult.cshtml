@@ -1,0 +1,65 @@
+﻿@model List<QuizApplicationMVC.Models.QuizQuestion>
+
+@{
+    ViewData["Title"] = "Evaluation Result";
+}
+
+<style>
+    /* Dark mode styles */
+    .dark-mode {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Light text color */
+    }
+
+        .dark-mode .correct-answer {
+            color: #4CAF50; /* Green for correct answers */
+        }
+
+        .dark-mode .incorrect-answer {
+            color: #F44336; /* Red for incorrect answers */
+        }
+
+        .dark-mode .score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+</style>
+
+<h1 class="display-4 text-white dark-mode">Evaluation Result</h1>
+
+<div class="container score dark-mode">
+    You got <span class="text-success">@TempData["CorrectAnswersCount"]</span> out of @Model.Count questions correct.
+</div>
+
+<div class="container dark-mode p-2">
+    @foreach (var question in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header dark-mode">
+                <h2>@question.QuestionName</h2>
+            </div>
+            <div class="card-body dark-mode">
+                @if (question.SelectedOption == question.CorrectOption)
+                {
+                    <p class="correct-answer">Selected Option: @question.SelectedOption (Correct)</p>
+                }
+                else
+                {
+                    <p class="incorrect-answer">Selected Option: @question.SelectedOption (Incorrect)</p>
+                }
+                <p>Option A: @question.OptionA</p>
+                <p>Option B: @question.OptionB</p>
+                <p>Option C: @question.OptionC</p>
+                <p>Option D: @question.OptionD</p>
+                <p>Correct Option: @question.CorrectOption</p>
+            </div>
+        </div>
+    }
+</div>
+<script>
+    window.addEventListener("popstate", function (e) {
+        if (window.location.pathname === '/Quiz/Evaluate') {
+            window.location.href = '/Home/Index';
+        }
+    });
+</script>

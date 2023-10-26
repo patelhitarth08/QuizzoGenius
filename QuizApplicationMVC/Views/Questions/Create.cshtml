@@ -1,0 +1,67 @@
+﻿@model QuizApplicationMVC.Models.Questions
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .text-white {
+        color: #fff !important; /* White text color */
+    }
+
+    .dark-input {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Text color */
+        border: 1px solid #555; /* Border color */
+    }
+
+</style>
+<h1 class="text-white">Create</h1>
+
+<h4 class="text-white">Questions</h4>
+<hr class="bg-white" />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuestionsName" class="control-label text-white">Question Name</label>
+                <input asp-for="QuestionsName" class="form-control dark-input" />
+                <span asp-validation-for="QuestionsName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionA" class="control-label text-white">Option A</label>
+                <input asp-for="OptionA" class="form-control dark-input" />
+                <span asp-validation-for="OptionA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionB" class="control-label text-white">Option B</label>
+                <input asp-for="OptionB" class="form-control dark-input" />
+                <span asp-validation-for="OptionB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionC" class="control-label text-white">Option C</label>
+                <input asp-for="OptionC" class="form-control dark-input" />
+                <span asp-validation-for="OptionC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionD" class="control-label text-white">Option D</label>
+                <input asp-for="OptionD" class="form-control dark-input" />
+                <span asp-validation-for="OptionD" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CorrectOption" class="control-label text-white">Correct Option</label>
+                <select asp-for="CorrectOption" class="form-control dark-input">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+                <span asp-validation-for="CorrectOption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+

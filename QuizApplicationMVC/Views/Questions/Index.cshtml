@@ -1,0 +1,48 @@
+﻿@model IEnumerable<QuizApplicationMVC.Models.Questions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white">Index</h1>
+
+<div class="container mt-4">
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+        <a asp-action="Index" asp-controller="Quiz" class="btn btn-success ml-2">Save</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">@Html.DisplayNameFor(model => model.QuestionsName)</th>
+                    <th style="width: 11%;">@Html.DisplayNameFor(model => model.OptionA)</th>
+                    <th style="width: 11%;">@Html.DisplayNameFor(model => model.OptionB)</th>
+                    <th style="width: 11%;">@Html.DisplayNameFor(model => model.OptionC)</th>
+                    <th style="width: 11%;">@Html.DisplayNameFor(model => model.OptionD)</th>
+                    <th style="width: 11%;">@Html.DisplayNameFor(model => model.CorrectOption)</th>
+                    <th style="width: 20%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.QuestionsName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OptionA)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OptionB)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OptionC)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OptionD)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CorrectOption)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model List<QuizApplicationMVC.Models.QuizQuestion>
+
+@{
+    ViewData["Title"] = "Take";
+}
+
+<style>
+    /* Dark mode styles */
+    .card {
+        background-color: #333; /* Dark background color for cards */
+        color: #fff; /* Light text color */
+    }
+
+    .form-check-input:checked + .form-check-label::before {
+        background-color: #007bff; /* Highlight selected radio buttons */
+    }
+
+    .form-control,
+    .btn-primary {
+        background-color: #333; /* Dark background for form controls and buttons */
+        color: #fff; /* Light text color for form controls and buttons */
+    }
+</style>
+
+<h1 class="display-4 text-white">Take Quiz</h1>
+
+<div class="container">
+    <form asp-action="Evaluate" method="post">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h2>@Model[i].QuestionName</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input asp-for="@Model[i].QuestionName" type="hidden" />
+                        <input asp-for="@Model[i].Id" type="hidden" />
+                        <input asp-for="@Model[i].OptionA" type="hidden" />
+                        <input asp-for="@Model[i].OptionB" type="hidden" />
+                        <input asp-for="@Model[i].OptionC" type="hidden" />
+                        <input asp-for="@Model[i].OptionD" type="hidden" />
+                        <input asp-for="@Model[i].CorrectOption" type="hidden" />
+                        <input asp-for="@Model[i].Quiz" type="hidden" />
+
+                        <div class="form-check">
+                            <input type="radio" asp-for="@Model[i].SelectedOption" value="@Model[i].OptionA" class="form-check-input" id="optionA-@i">
+                            <label class="form-check-label" for="optionA-@i">@Model[i].OptionA</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="radio" asp-for="@Model[i].SelectedOption" value="@Model[i].OptionB" class="form-check-input" id="optionB-@i">
+                            <label class="form-check-label" for="optionB-@i">@Model[i].OptionB</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" asp-for="@Model[i].SelectedOption" value="@Model[i].OptionC" class="form-check-input" id="optionC-@i">
+                            <label class="form-check-label" for="optionC-@i">@Model[i].OptionC</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" asp-for="@Model[i].SelectedOption" value="@Model[i].OptionD" class="form-check-input" id="optionD-@i">
+                            <label class="form-check-label" for="optionD-@i">@Model[i].OptionD</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <button type="submit" class="btn btn-primary">Submit Quiz</button>
+    </form>
+</div>

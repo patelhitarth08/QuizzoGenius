@@ -1,0 +1,47 @@
+﻿@model QuizApplicationMVC.Models.Quiz
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    .dark-input {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Text color */
+        border: 1px solid #555; /* Border color */
+    }
+</style>
+
+<h1 class="text-white">Edit Quiz</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" class="form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="control-label text-white">Title</label>
+                <input asp-for="Title" class="form-control dark-input" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="control-label text-white">Description</label>
+                <input asp-for="Description" class="form-control dark-input" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

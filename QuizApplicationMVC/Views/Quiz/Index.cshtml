@@ -1,0 +1,42 @@
+﻿@model IEnumerable<QuizApplicationMVC.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-4">
+    <h1 class="text-white">Quiz List</h1>
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+    @if (!Model.Any())
+    {
+        <p>No quizzes available.</p>
+    }
+    else
+    {
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-success" asp-action="Take" asp-route-id="@item.Id">Take</a>
+                            <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

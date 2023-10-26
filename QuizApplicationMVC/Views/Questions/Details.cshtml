@@ -1,0 +1,41 @@
+﻿@model QuizApplicationMVC.Models.Questions
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+    <h1>Details</h1>
+
+    <div>
+        <h4>Questions</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Questions Name</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.QuestionsName)</dd>
+
+            <dt class="col-sm-2">Option A</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.OptionA)</dd>
+
+            <dt class="col-sm-2">Option B</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.OptionB)</dd>
+
+            <dt class="col-sm-2">Option C</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.OptionC)</dd>
+
+            <dt class="col-sm-2">Option D</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.OptionD)</dd>
+
+            <dt class="col-sm-2">Correct Option</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.CorrectOption)</dd>
+
+            <dt class="col-sm-2">Quiz ID</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.QuizId)</dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
