@@ -68,5 +68,6 @@ Watch our video demonstration to see the QuizzoGenius Quiz Application in action
 
 - Frontend: HTML, CSS, JavaScript
 - Backend: C#, ASP.NET Core
+- Database: Entity Framework
 - User Authentication: Identity Framework
 - Database Management: SQL Server
