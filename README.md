@@ -67,7 +67,7 @@ Watch our video demonstration to see the QuizzoGenius Quiz Application in action
 ## Technologies Used 🛠️
 
 - Frontend: HTML, CSS, JavaScript
-- Backend: C#, ASP.NET Core
+- Backend: C#, ASP.NET MVC
 - Database: Entity Framework
 - User Authentication: Identity Framework
 - Database Management: SQL Server
